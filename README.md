@@ -1,13 +1,13 @@
  # Desafio de API CRUD
 
 # Índice 
-* [Descrição do Projeto](##DescricaodoProjeto)
-* [Tecnologias](##Tecnologias)
-* [Status](#Status)
-* [Como Instalar](##Comoinstalar)
-* [Rotas](##Rotas(Routes))
+* [Descrição do Projeto](#descrição-do-projeto)
+* [Tecnologias](#tecnologias)
+* [Status](#status)
+* [Como Instalar](#como-instalar)
+* [Rotas](#rotas)
 
-## Descricao do Projeto
+## Descrição do Projeto
 Projeto elaborado para etapa do programa Acelera Jovem da Dataside. O desafio era criar uma API CRUD, composta das seguintes funcionalidades:
 - Cadastrar um novo usuário.
 - Listar todos os usuários. 
@@ -15,7 +15,8 @@ Projeto elaborado para etapa do programa Acelera Jovem da Dataside. O desafio er
 - Excluir um usuário.
 - Atualizar dados de um usuário.
 - Persistir os dados em um banco de dados.
-## Tecnologias:
+  
+## Tecnologias
 
 - Node: v22.13.1
 - Sqlite
@@ -51,7 +52,7 @@ node SRC\app.js
 
   instalar extensão "MYSQL"
 
-## Rotas (Routes)
+## Rotas
 
 - GET/users
 - GET/user
