@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', (req,res)=>{
     res.json({
         "statusCode": 200,
-        "msg": "api rodando"
+        "msg": "api running"
     })
 })
 
@@ -16,6 +16,7 @@ router.get('/user', selectUser)
 router.post('/user', insertUser)
 router.put('/user', updateUser)
 router.delete('/user', deleteUser)
+
 
 
 export default router;

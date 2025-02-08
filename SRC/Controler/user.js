@@ -4,26 +4,43 @@ import { openDb } from "../configDB.js";
 
 export async function createTable(){
     openDb().then(db=>{
-        db.exec('CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, email TEXT, data_nascimento DATE)')
+        db.exec('CREATE TABLE IF NOT EXISTS User (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome TEXT, email TEXT, data_nascimento DATE )')
     })
 }
 
-export async function insertUser(req,res){
+export async function insertUser(req, res) {
     let user = req.body;
-    openDb().then(db=>{
-        db.run('INSERT INTO User (nome, email, data_nascimento ) VALUES (?,?,?)', [user.name,user.email,user.data_nascimento])
-    })
-    res.json({
-        "statusCode": 200,
-        "msg": "User successfully registrated"
-    })
+    const db = await openDb();
 
+    try {
+        const existingUser = await db.get('SELECT * FROM User WHERE email = ?', [user.email]);
+        if (existingUser) {
+            return res.json({
+                "statusCode": 400,
+                "msg": "User already exists"
+            });
+        }
+        await db.run('INSERT INTO User (nome, email, data_nascimento) VALUES (?, ?, ?)', 
+            [user.nome, user.email, user.data_nascimento]);
+        res.json({
+            "statusCode": 200,
+            "msg": "User successfully registered"
+        });
+    } catch (error) {
+        console.error(error);
+        res.json({
+            "statusCode": 500,
+            "msg": "Internal Server Error"
+        });
+    } finally {
+        db.close();
+    }
 }
 
 export async function selectUsers(req,res){
     let user = req.body;
     openDb().then(db=>{
-        db.all('SELECT * FROM User')
+        db.all('SELECT * FROM User ORDER BY nome ASC')
         .then(users=>res.json(users))
     })
 }
