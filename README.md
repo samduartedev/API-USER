@@ -56,6 +56,7 @@ node SRC\app.js
 
 * Se for utilizar https, é necessário gerar certificado SSL para funcionar
 * Esse código possui cors ativado
+  
 :arrow_right: você pode comentar as linhas 16 a 19 em "app.js" para não usar https
 
 ## Rotas
