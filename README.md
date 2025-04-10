@@ -1,4 +1,4 @@
- # Desafio de API CRUD
+ # Desafio de API Rest
 
 # Índice 
 * [Descrição do Projeto](#descrição-do-projeto)
@@ -8,7 +8,7 @@
 * [Rotas](#rotas)
 
 ## Descrição do Projeto
-Projeto elaborado para etapa do programa Acelera Jovem da Dataside. O desafio era criar uma API CRUD, composta das seguintes funcionalidades:
+Projeto elaborado para teste técnico. O desafio era criar uma API CRUD, composta das seguintes funcionalidades:
 - Cadastrar um novo usuário.
 - Listar todos os usuários. 
 - Listar um usuário.
